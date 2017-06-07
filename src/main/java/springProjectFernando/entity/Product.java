@@ -3,19 +3,19 @@ package springProjectFernando.entity;
 public class Product {
 
 	private String productName;
-	private Double productPrice;
-	
+	private String productPrice;
+
 	public String getProductName() {
 		return productName;
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public Double getProductPrice() {
+	public String getProductPrice() {
 		return productPrice;
 	}
-	public void setProductPrice(Double productPrice) {
+	public void setProductPrice(String productPrice) {
 		this.productPrice = productPrice;
 	}
-	
+
 }

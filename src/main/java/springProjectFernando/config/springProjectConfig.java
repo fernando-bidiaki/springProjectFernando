@@ -31,11 +31,6 @@ public class springProjectConfig {
 	public HelloWorldService hello(){
 		return new HelloWorldServiceImpl();
 	}
-	
-	@Bean(name = "user")
-	@Description("user bean")
-	public UserService user(){
-		return new UserServiceImp();
-	}
+
 	
 }

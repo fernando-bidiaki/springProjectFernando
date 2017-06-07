@@ -1,11 +1,20 @@
 package springProjectFernando.service;
 
-public interface UserService {
-	
-	void getUserName(String name);
-	
-	void getUserAddress (String address);
-	
-	void getUserPhoneNumber (String phoneNumber);
+import java.util.List;
 
+import springProjectFernando.entity.User;
+
+
+public interface UserService {
+
+	User findById(Integer id);
+	
+	List<User> findAll();
+	
+	void save(User user);
+	
+	void update(User user);
+	
+	void delete(User user);
+	
 }

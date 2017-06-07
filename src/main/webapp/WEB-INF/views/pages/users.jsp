@@ -13,7 +13,7 @@
 	<h1>Hello, ${user.firstName}</h1>
 
 	<form:form modelAttribute="user"
-		action="${pageContext.request.contextPath}/user/save" method="GET">
+		action="${pageContext.request.contextPath}/user" method="POST">
 		<div>
 			<label>Name:</label>
 			<form:input path="firstName" id="firstName" type="text" />
@@ -42,7 +42,7 @@
 			<td>First Name</td>
 			<td>CPF</td>
 		</tr>
-		
+
 		<c:forEach items="${users}" var="user">
 			<tr>
 				<td>${user.lastName}</td>
