@@ -10,10 +10,24 @@
 <title>User Form</title>
 </head>
 <body>
-	<h1>Hello, ${user.firstName}</h1>
+	<h2>User form</h2>
 
-	<form:form modelAttribute="user"
-		action="${pageContext.request.contextPath}/user" method="POST">
+	<c:choose>
+		<c:when test="${user.id>0}">
+			<c:set var="formMethod" value="PUT"></c:set>
+			<c:url var="formAction" value="/user/${user.id}"></c:url>
+		</c:when>
+
+		<c:otherwise>
+			<c:set var="formMethod" value="POST"></c:set>
+			<c:url var="formAction" value="/user"></c:url>
+		</c:otherwise>
+
+	</c:choose>
+
+
+	<form:form modelAttribute="user" action="${formAction}"
+		method="${formMethod}">
 		<div>
 			<label>Name:</label>
 			<form:input path="firstName" id="firstName" type="text" />
@@ -41,6 +55,8 @@
 			<td>Last Name</td>
 			<td>First Name</td>
 			<td>CPF</td>
+			<td>Edit</td>
+			<td>Delete</td>
 		</tr>
 
 		<c:forEach items="${users}" var="user">
@@ -48,6 +64,8 @@
 				<td>${user.lastName}</td>
 				<td>${user.firstName}</td>
 				<td>${user.cpf}</td>
+				<td><a
+					href="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
 			</tr>
 		</c:forEach>
 

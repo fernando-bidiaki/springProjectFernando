@@ -7,10 +7,14 @@
 <title>Teste</title>
 </head>
 <body>
-<h1>Welcome, ${nome}!</h1>
-<h2>Welcome, ${nome}!</h2>
-<h3>Welcome, ${nome}!</h3>
-<h4>Welcome, ${nome}!</h4>
-<h5>Welcome, ${nome}!</h5>
+<h1>Welcome, ${nome}! ${id}</h1>
+<h5>Welcome, ${nome}! ${id}</h5>
+<h2>Welcome, ${nome}! ${id}</h2>
+<h4>Welcome, ${nome}! ${id}</h4>
+<h3>Welcome, ${nome}! ${id}</h3>
+
+<p>User-Agent: ${agent}</p>
+<p>Accept: ${accept}</p>
+
 </body>
 </html>

@@ -13,7 +13,7 @@ public interface UserService {
 	
 	void save(User user);
 	
-	void update(User user);
+	User update(Integer userId, User user);
 	
 	void delete(User user);
 	
