@@ -22,35 +22,36 @@
 			<c:set var="formMethod" value="POST"></c:set>
 			<c:url var="formAction" value="/user"></c:url>
 		</c:otherwise>
-
 	</c:choose>
 
+	<div class="container">
+		<form:form modelAttribute="user" action="${formAction}"
+			method="${formMethod}">
+			
+			<div class="form-group row">
+				<label>Name:</label>
+				<form:input class="form-control" path="firstName" id="firstName" type="text" />
+			</div>
 
-	<form:form modelAttribute="user" action="${formAction}"
-		method="${formMethod}">
-		<div>
-			<label>Name:</label>
-			<form:input path="firstName" id="firstName" type="text" />
+			<div class="form-group row">
+				<label>Last Name:</label>
+				<form:input class="form-control" path="lastName" id="lastName" type="text" />
+			</div>
 
-		</div>
+			<div class="form-group row">
+				<label>CPF:</label>
+				<form:input class="form-control" path="cpf" id="cpf" type="text" />
+			</div>
 
-		<div>
-			<label>Last Name:</label>
-			<form:input path="lastName" id="lastName" type="text" />
-		</div>
-
-		<div>
-			<label>CPF:</label>
-			<form:input path="cpf" id="cpf" type="text" />
-		</div>
-
-		<div>
-			<button type="submit">Save</button>
-		</div>
-	</form:form>
-
+			<div class="form-group row">
+				<button class="btn btn-primary" type="submit">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+				</button>
+			</div>
+		</form:form>
+	
 	<h1>List of User</h1>
-	<table>
+	<table class="table table-striped">
 		<tr>
 			<td>Last Name</td>
 			<td>First Name</td>
@@ -64,8 +65,8 @@
 				<td>${user.lastName}</td>
 				<td>${user.firstName}</td>
 				<td>${user.cpf}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
+				<td><ahref="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
+				<td>Delete</td>
 			</tr>
 		</c:forEach>
 

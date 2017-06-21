@@ -6,9 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> <tiles:getAsString name="title"> </tiles:getAsString></title>
+<title><tiles:getAsString name="title">
+	</tiles:getAsString></title>
 
-<style type="text/css">
+<link rel="stylesheet"href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
+<link rel="stylesheet"href="webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css">
+<link rel="stylesheet"href="webjars/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <style type="text/css">
 #header {
 	margin-left: 20%;
 }
@@ -40,27 +45,29 @@
 	text-decoration: none;
 	text-transform: uppercase;
 }
-</style>
+</style> -->
 </head>
 <body>
-	<header id="header">
+<%-- 	<header id="header">
 		<tiles:insertAttribute name="header">
 		</tiles:insertAttribute>
-	</header>
+	</header> --%>
 
 	<section id="sidemenu">
-		<tiles:insertAttribute name="menu">
-		</tiles:insertAttribute>
+		<tiles:insertAttribute name="menu"></tiles:insertAttribute>
 	</section>
 
 	<section id="site-content">
-		<tiles:insertAttribute name="body">
-		</tiles:insertAttribute>
+		<tiles:insertAttribute name="body"></tiles:insertAttribute>
 	</section>
 
 	<footer id="footer">
-		<tiles:insertAttribute name="footer">
-		</tiles:insertAttribute>
+		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 	</footer>
+	
+	<script type="text/javascript" src="webjars/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="webjars/bootstrap/3.3.7-1/css/bootstrap.min.js"></script>
+	<script type="text/javascript" src="webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.js"></script>
+
 </body>
 </html>

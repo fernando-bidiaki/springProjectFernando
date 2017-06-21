@@ -19,8 +19,9 @@
 		<servlet.jsp-api.version>2.3.1</servlet.jsp-api.version>
 		<apachetiles.version>3.0.7</apachetiles.version>
 		<jstl.version>1.2</jstl.version>
-
-
+		<webjar.jquery.version>3.2.1</webjar.jquery.version>
+		<webjar.bootstrap.version>3.3.7-1</webjar.bootstrap.version>
+		<webjar.font-awesome.version>4.7.0</webjar.font-awesome.version>
 	</properties>
 
 	<dependencies>
@@ -92,6 +93,25 @@
 			<version>${apachetiles.version}</version>
 		</dependency>
 
+		<!-- Webjars api -->
+		
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${webjar.jquery.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${webjar.bootstrap.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>${webjar.font-awesome.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
