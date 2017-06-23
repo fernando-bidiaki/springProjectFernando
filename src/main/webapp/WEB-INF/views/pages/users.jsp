@@ -10,7 +10,6 @@
 <title>User Form</title>
 </head>
 <body>
-	<h2>User form</h2>
 
 	<c:choose>
 		<c:when test="${user.id>0}">
@@ -27,49 +26,51 @@
 	<div class="container">
 		<form:form modelAttribute="user" action="${formAction}"
 			method="${formMethod}">
-			
-			<div class="form-group row">
-				<label>Name:</label>
-				<form:input class="form-control" path="firstName" id="firstName" type="text" />
-			</div>
+			<div class="col-xs-5">
+				<div class="form-group row">
+					<label>Name:</label>
+					<form:input class="form-control " path="firstName" id="firstName"
+						type="text" />
+				</div>
 
-			<div class="form-group row">
-				<label>Last Name:</label>
-				<form:input class="form-control" path="lastName" id="lastName" type="text" />
-			</div>
+				<div class="form-group row">
+					<label>Last Name:</label>
+					<form:input class="form-control" path="lastName" id="lastName"
+						type="text" />
+				</div>
 
-			<div class="form-group row">
-				<label>CPF:</label>
-				<form:input class="form-control" path="cpf" id="cpf" type="text" />
-			</div>
+				<div class="form-group row">
+					<label>CPF:</label>
+					<form:input class="form-control" path="cpf" id="cpf" type="text" />
+				</div>
 
-			<div class="form-group row">
-				<button class="btn btn-primary" type="submit">
-					<i class="fa fa-floppy-o" aria-hidden="true"></i> Save
-				</button>
-			</div>
+				<div class="form-group row">
+					<button class="btn btn-primary" type="submit">
+						<i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+					</button>
+				</div>
 		</form:form>
-	
-	<h1>List of User</h1>
-	<table class="table table-striped">
-		<tr>
-			<td>Last Name</td>
-			<td>First Name</td>
-			<td>CPF</td>
-			<td>Edit</td>
-			<td>Delete</td>
-		</tr>
 
-		<c:forEach items="${users}" var="user">
+		<h1>List of User</h1>
+		<table class="table table-hover table-bordered">
 			<tr>
-				<td>${user.lastName}</td>
-				<td>${user.firstName}</td>
-				<td>${user.cpf}</td>
-				<td><ahref="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
+				<td>Last Name</td>
+				<td>First Name</td>
+				<td>CPF</td>
+				<td>Edit</td>
 				<td>Delete</td>
 			</tr>
-		</c:forEach>
 
-	</table>
+			<c:forEach items="${users}" var="user">
+				<tr>
+					<td>${user.lastName}</td>
+					<td>${user.firstName}</td>
+					<td>${user.cpf}</td>
+					<td><ahref="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
+					<td>Delete</td>
+				</tr>
+			</c:forEach>
+			</div>
+		</table>
 </body>
 </html>
