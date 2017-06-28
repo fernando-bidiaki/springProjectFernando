@@ -20,8 +20,6 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
-	AtomicInteger incrementId = new AtomicInteger();
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView users(ModelMap map) {
@@ -35,7 +33,6 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String save(User user, ModelMap map) {
-		user.setId(incrementId.incrementAndGet());
 		userService.save(user);
 		user = new User();
 		map.addAttribute("user", user);
