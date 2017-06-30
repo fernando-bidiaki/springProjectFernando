@@ -1,20 +1,10 @@
 package springProjectFernando.service;
 
-import java.util.List;
-
 import springProjectFernando.entity.User;
+import springProjectFernando.generic.JPAGeneric;
 
 
-public interface UserService {
-
-	User findById(Integer id);
+public interface UserService extends JPAGeneric<User>{
 	
-	List<User> findAll();
-	
-	void save(User user);
-	
-	User update(Integer userId, User user);
-	
-	void delete(User user);
-	
+	User findByCpf(String cpf);
 }

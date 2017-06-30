@@ -1,9 +1,7 @@
 package springProjectFernando.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,18 +16,14 @@ public class UserServiceImp implements UserService {
 	@Autowired
 	private UserDAO userDao;
 
-	List<User> users = new ArrayList<>();
-
 	@Override
 	public User findById(Integer id) {
-
 		return userDao.findById(id);
 	}
 
 	@Override
 	public List<User> findAll() {
-
-		return users;
+		return userDao.findAll();
 	}
 
 	@Override
@@ -38,24 +32,18 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public User update(Integer userId, User user) {
-
-		/*
-		 * O método BeanUtils.copyProperties substitui os seguintes comandos:
-		 * foundUser.setFirstName(user.getFirstName());
-		 * foundUser.setLastName(user.getLastName());
-		 * foundUser.setCpf(user.getCpf());
-		 */
-
-		User foundUser = findById(userId);
-		BeanUtils.copyProperties(user, foundUser, "id");
-		userDao.update(foundUser);
-		return foundUser;
-
+	public User update(User user) {
+		userDao.update(user);
+		return user;
 	}
 
 	@Override
 	public void delete(User user) {
 		userDao.delete(user);
+	}
+
+	@Override
+	public User findByCpf(String cpf) {
+		return userDao.findByCpf(cpf);
 	}
 }

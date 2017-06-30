@@ -1,18 +1,9 @@
 package springProjectFernando.dao;
 
-import java.util.List;
-
 import springProjectFernando.entity.User;
+import springProjectFernando.generic.JPAGeneric;
 
-public interface UserDAO {
+public interface UserDAO extends JPAGeneric<User>{
 
-	User findById(Integer id);
-
-	List<User> findAll();
-
-	void save(User user);
-
-	void update(User user);
-
-	void delete(User user);
+	User findByCpf(String cpf);
 }
