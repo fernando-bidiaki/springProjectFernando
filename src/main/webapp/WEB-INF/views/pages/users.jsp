@@ -2,9 +2,15 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
+	
+	<a href="${pageContext.request.contextPath}/user?myLocale=pt_BR">Portuguese</a>
+	<a href="${pageContext.request.contextPath}/user?myLocale=en_US">English</a>
+	
+	
 	<c:choose>
 		<c:when test="${user.id>0}">
 			<c:set var="formMethod" value="PUT"></c:set>
@@ -22,19 +28,19 @@
 			method="${formMethod}">
 			<div class="col-xs-5">
 				<div class="form-group row">
-					<label>Name:</label>
+					<label><spring:message code="user.firstName"/></label>
 					<form:input class="form-control " path="firstName" id="firstName"
 						type="text" />
 				</div>
 
 				<div class="form-group row">
-					<label>Last Name:</label>
+					<label><spring:message code="user.lastName"/></label>
 					<form:input class="form-control" path="lastName" id="lastName"
 						type="text" />
 				</div>
 
 				<div class="form-group row">
-					<label>CPF:</label>
+					<label><spring:message code="user.cpf"/></label>
 					<form:input class="form-control" path="cpf" id="cpf" type="text" />
 				</div>
 
@@ -46,6 +52,25 @@
 		</form:form>
 
 		<h1>List of User</h1>
+		
+		<form class="form-inline" action="${pageContext.request.contextPath}/user/find-by">
+			<div class="input-group"> 
+				<input type ="text" class = "form-control" name="firstName" 
+				placeholder="First Name"/>
+			</div>
+			
+			<div class="input-group"> 
+				<input type ="text" class = "form-control" name="lastName" 
+				placeholder="Last Name"/>
+			</div>
+			
+			<div class="input-group"> 
+				<input type ="text" class = "form-control" name="cpf" 
+				placeholder="Cpf"/>
+			</div>
+			<button type="submit" class="btn btn-primary">Pesquisar</button>
+		</form>
+		
 		<table class="table table-hover table-bordered">
 			<tr>
 				<td>Last Name</td>
@@ -61,10 +86,24 @@
 					<td>${user.firstName}</td>
 					<td>${user.cpf}</td>
 					<td><a href="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
-					<td>Delete</td>
+					<td>
+						<a href="#myModal_${user.id}" role="button" class="btn btn-danger" data-toggle="modal">Delete <i class="fa fa-trash-o"> </i></a>
+					</td>
 				</tr>
+				
+				<div id="myModal_${user.id}" class="modal fade">
+					<div class="modal-dialog"> 
+						<div class="modal-header">
+							<h3 class="modal-title">Confirm Delete</h3>						
+						</div>
+						<div class="modal-body">
+							<button class ="btn btn-default">Close</button>
+							<a href="${pageContext.request.contextPath}/user/delete/${user.id} class="btn btn-danger"> Delete</a>
+						</div>
+					</div>
+				</div>
+				
 			</c:forEach>
-			</div>
 		</table>
 </body>
 </html>

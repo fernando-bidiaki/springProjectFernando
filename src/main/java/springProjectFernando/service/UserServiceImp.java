@@ -46,4 +46,11 @@ public class UserServiceImp implements UserService {
 	public User findByCpf(String cpf) {
 		return userDao.findByCpf(cpf);
 	}
+
+	@Override
+	public List<User> findBy(String lastName, String firstName, String cpf) {
+		
+		return userDao.findBy(lastName,firstName,cpf);
+	}
+
 }
