@@ -10,4 +10,6 @@ public interface UserDAO extends JPAGeneric<User>{
 	User findByCpf(String cpf);
 
 	List<User> findBy(String lastName, String firstName, String cpf);
+
+	User findUserName(String username);
 }

@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 
 import springProjectFernando.entity.User;
@@ -81,6 +82,18 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 		return query.getResultList();
+	}
+
+	@Override
+	public User findUserName(String username) {
+		String sql = "SELECT u FROM User u WHERE u.username = :username";
+		User user = em.createQuery(sql,User.class).setParameter("username", username).getSingleResult();
+		
+		if(user != null){
+			Hibernate.initialize(user.getUserProfiles());
+		}
+		
+		return user;
 	}
 
 }

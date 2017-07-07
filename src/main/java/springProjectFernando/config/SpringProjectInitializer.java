@@ -9,7 +9,7 @@ public class SpringProjectInitializer extends AbstractAnnotationConfigDispatcher
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { springProjectConfig.class };
+		return new Class[] { SpringProjectConfig.class };
 	}
 
 	@Override

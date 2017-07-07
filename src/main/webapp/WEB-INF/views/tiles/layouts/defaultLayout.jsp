@@ -66,8 +66,8 @@
 	</footer>
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/webjars/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/css/bootstrap.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/js/bootstrap-theme.min.js"></script>
 
 </body>
 </html>

@@ -1,38 +1,57 @@
 package springProjectFernando.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.br.CPF;
-
-@NamedQuery (name = "User.findbyCpf",
-query = "SELECT u FROM User u WHERE u.cpf = :cpf")
+@NamedQuery(name = "User.findbyCpf", query = "SELECT u FROM User u WHERE u.cpf = :cpf")
 
 @Entity
-@Table (name = "USER")
+@Table(name = "USER", uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name = "FIRST_NAME")
 	private String firstName;
-	
+
 	@Column(name = "LAST_NAME")
 	private String lastName;
-	
+
 	@NotNull
-	//@CPF(message="Invalid CPF")
+	// @CPF(message="Invalid CPF")
 	@Column(name = "CPF")
 	private String cpf;
+	
+	@NotNull
+	@Column(name="USERNAME")
+	private String username;
+	
+	@NotNull
+	@Column(name = "PASSWORD")
+	private String password;
 
+	@ManyToMany
+	@JoinTable(name = "USER_PROFILE", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "USER_PROFILE_ID") })
+	
+	private Set<UserProfile> userProfiles = new HashSet<>();
+
+	// getters and setters
 	public Integer getId() {
 		return id;
 	}
@@ -65,6 +84,14 @@ public class User {
 		this.cpf = cpf;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -90,6 +117,20 @@ public class User {
 		return true;
 	}
 
-	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Set<UserProfile> getUserProfiles() {
+		return userProfiles;
+	}
+
+	public void setUserProfiles(Set<UserProfile> userProfiles) {
+		this.userProfiles = userProfiles;
+	}
 
 }

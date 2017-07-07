@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("springProjectFernando")
-public class springProjectConfig extends WebMvcConfigurerAdapter {
+public class SpringProjectConfig extends WebMvcConfigurerAdapter {
 
 	/*
 	 * @Bean public ViewResolver viewResolver(){ InternalResourceViewResolver
