@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
@@ -22,7 +23,8 @@
 			<c:url var="formAction" value="/user"></c:url>
 		</c:otherwise>
 	</c:choose>
-
+	
+	<sec:authorize access="hasRole('ADMIN')">
 	<div class="container">
 		<form:form modelAttribute="user" action="${formAction}"
 			method="${formMethod}">
@@ -43,6 +45,16 @@
 					<label><spring:message code="user.cpf"/></label>
 					<form:input class="form-control" path="cpf" id="cpf" type="text" />
 				</div>
+				
+				<div class="form-group row">
+					<label><spring:message code="user.username"/></label>
+					<form:input class="form-control" path="username" id="username" type="text" autocomplete="off" />
+				</div>
+				
+				<div class="form-group row">
+					<label><spring:message code="user.password"/></label>
+					<form:input class="form-control" path="password" id="password" type="password" autocomplete="off" />
+				</div>
 
 				<div class="form-group row">
 					<button class="btn btn-primary" type="submit">
@@ -51,6 +63,8 @@
 				</div>
 			</div>
 		</form:form>
+		</div>
+		</sec:authorize>
 		
 		<div><h1>List of User</h1></div>
 		

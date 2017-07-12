@@ -3,6 +3,7 @@ package springProjectFernando.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,9 @@ public class UserServiceImp implements UserService {
 	@Autowired
 	private UserDAO userDao;
 
+//	@Autowired
+//	private PasswordEncoder encoder;
+	
 	@Override
 	public User findById(Integer id) {
 		return userDao.findById(id);
@@ -28,6 +32,7 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public void save(User user) {
+//		user.setPassword(encoder.encode(user.getPassword()));
 		userDao.save(user);
 	}
 
