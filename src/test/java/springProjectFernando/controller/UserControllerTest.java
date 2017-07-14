@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +32,10 @@ public class UserControllerTest {
 	
 	@Before
 	public void setUp(){
-		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+		InternalResourceViewResolver resolvers = new InternalResourceViewResolver();
+		resolvers.setPrefix("/WEB-INF/views/pages/");
+		resolvers.setSuffix(".jsp");
+		mockMvc = MockMvcBuilders.standaloneSetup(controller).setViewResolvers(resolvers).build();
 	}
 	
 	private byte[] toJason(Object obj) throws Exception{
