@@ -24,6 +24,8 @@
 		<webjar.font-awesome.version>4.7.0</webjar.font-awesome.version>
 		<jpa.mysql-connector-java>5.1.42</jpa.mysql-connector-java>
 		<springsecurity.version>4.2.3.RELEASE</springsecurity.version>
+		
+		
 
 	</properties>
 
@@ -172,7 +174,29 @@
 		    <artifactId>spring-security-taglibs</artifactId>
 		    <version>${springsecurity.version}</version>
 		</dependency>
-
+		
+		<!-- TESTES -->
+	<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>1.4.196</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${springframework.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		    <scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
